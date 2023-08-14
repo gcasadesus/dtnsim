@@ -72,7 +72,7 @@ satellite:
 
 # Basic CGR router
 agc_router:
-  class:            AgcCgrRouter
+  class:            DtnCgrBasicRouter #AgcCgrRouter
   excluded_routes:  []                      # Routes that are not valid
   relays:           all                     # Everyone is a relay
   max_relay_hops:   100000000               # Unconstrained number of relay hops

@@ -1,0 +1,14 @@
+networkx
+pandas
+lxml
+tables
+numpy
+PyYAML
+openpyxl
+xlrd
+sphinx
+xlsxwriter
+simpy<4
+pydantic==0.13
+sphinx-bootstrap-theme
+pytest
