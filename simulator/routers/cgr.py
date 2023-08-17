@@ -62,42 +62,30 @@ def cgr_build_route_fast(
 
     # No more routes are available, exit
     if route is None:
-        return routes
+        return route
+
     # Fill out constant route properties
     route["orig"] = orig
     route["time"] = t
 
-    # Initialize variables
-    first_contact = route["contacts"][0]
-
-    # If anchor available, use if
-    if anchor is not None and first_contact != anchor:
-        # End anchored route search
-        cp["suppressed"][cp["orig"] != orig] = False
-        cp["suppressed"][cp["index"] == anchor] = True
-        anchor = None
-    else:
-        # Store computed route
-        routes.append(route)
-
-        # Log the addition of the route. Note that this has to be done here since if anchor is not None,
-        # the resulting route might get invalidated
-        if verbose is True:
-            print(
-                msg.format(
-                    orig,
-                    dest,
-                    count,
-                    route["EAT"],
-                    route["tstart"],
-                    route["tend"],
-                    route["contacts"],
-                    route["route"],
-                )
+    # Log the addition of the route. Note that this has to be done here since if anchor is not None,
+    # the resulting route might get invalidated
+    if verbose is True:
+        print(
+            msg.format(
+                orig,
+                dest,
+                count,
+                route["EAT"],
+                route["tstart"],
+                route["tend"],
+                route["contacts"],
+                route["route"],
             )
-            count += 1
+        )
+        count += 1
 
-    return routes
+    return route
 
 
 def cgr_build_route_list_fast(
